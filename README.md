@@ -40,7 +40,7 @@ You'll also want to make sure you have the peer dependencies `lodash`, `prop-typ
 <WindowSize
   render={({ width }) => (
     <div style={{ width: width * 0.5 }}>
-      This is always fixed at half of window with.
+      This is always fixed at half of window width.
     </div>
   )} />
 ```
