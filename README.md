@@ -8,8 +8,9 @@ This is a collection of React components we use at [Stoke Studio](https://stokes
 yarn add stoke-toolbelt
 ```
 
-You'll also want to make sure you have `lodash` and, of course, `react` installed.
+You'll also want to make sure you have the peer dependencies `lodash`, `prop-types`, and `react` installed.
 
 ## Components
 
+- [RetinaImage](src/RetinaImage.js)
 - [WindowSize](src/WindowSize.js)
