@@ -11,9 +11,10 @@ const config = {
   output: {
     format: 'umd'
   },
-  external: ['lodash', 'react'],
+  external: ['lodash', 'prop-types', 'react', 'react-ga'],
   globals: {
     lodash: 'lodash',
+    'prop-types': 'PropTypes',
     react: 'React'
   },
   name: 'StokeToolbelt',

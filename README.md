@@ -8,7 +8,10 @@ This is a collection of React components we use at [Stoke Studio](https://stokes
 yarn add stoke-toolbelt
 ```
 
-You'll also want to make sure you have the peer dependencies `lodash`, `prop-types`, and `react` installed.
+**Dependencies:**
+```bash
+yarn add lodash prop-types react react-ga react-router-dom
+```
 
 ## Components
 
@@ -28,6 +31,23 @@ You'll also want to make sure you have the peer dependencies `lodash`, `prop-typ
   ]}
   naturalWidth={500}
   alt="My Image" />
+```
+
+### TrackPageViews
+
+**Props:**
+- `trackingId`: Google Analytics Tracking ID (ex. `UA-12345678-1`)
+
+```jsx
+const App = () => (
+  <TrackPageViews trackingId="UA-12345678-1">
+    <Layout>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Layout>
+  </TrackPageViews>
+);
 ```
 
 ### WindowSize
