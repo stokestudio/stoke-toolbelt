@@ -33,6 +33,15 @@ yarn add lodash prop-types react react-ga react-router-dom
   alt="My Image" />
 ```
 
+### ScrollToTop
+Scroll to top of page on route changes.
+
+```jsx
+<ScrollToTop>
+  <App />
+</ScrollToTop>
+```
+
 ### TrackPageViews
 
 **Props:**
