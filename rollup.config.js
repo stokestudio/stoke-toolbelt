@@ -11,11 +11,12 @@ const config = {
   output: {
     format: 'umd'
   },
-  external: ['lodash', 'prop-types', 'react', 'react-ga'],
+  external: ['lodash', 'prop-types', 'react', 'react-ga', 'react-router-dom'],
   globals: {
     lodash: 'lodash',
     'prop-types': 'PropTypes',
-    react: 'React'
+    react: 'React',
+    'react-router-dom': 'ReactRouterDOM'
   },
   name: 'StokeToolbelt',
   plugins: [
