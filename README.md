@@ -15,6 +15,38 @@ yarn add lodash prop-types react react-ga react-router-dom
 
 ## Components
 
+### NotFound
+See [Rendering Routes with Statuses](#render-statuses). For use with [react-router](https://github.com/ReactTraining/react-router).
+
+**Props:**
+*Same props as `Route`*
+
+```jsx
+<Switch>
+  <Route path="/page1" component={Page1} />
+  <Route path="/page2" component={Page2} />
+  <Route path="/page3" component={Page3} />
+
+  <NotFound component={NotFoundPage} />
+</Switch>
+```
+
+### PermanentRedirect
+For use with [react-router](https://github.com/ReactTraining/react-router).
+
+**Props:**
+*Same props as `Route`*
+
+```jsx
+<Switch>
+  <Route path="/page1" component={Page1} />
+  <Route path="/page2" component={Page2} />
+  <Route path="/page3" component={Page3} />
+
+  <PermanentRedirect exact from="/about-us" to="/about" />
+</Switch>
+```
+
 ### RetinaImage
 
 **Props:**
@@ -34,7 +66,7 @@ yarn add lodash prop-types react react-ga react-router-dom
 ```
 
 ### ScrollToTop
-Scroll to top of page on route changes.
+For use with [react-router](https://github.com/ReactTraining/react-router). Scroll to top of page on route changes.
 
 ```jsx
 <ScrollToTop>
@@ -72,4 +104,23 @@ const App = () => (
       This is always fixed at half of window width.
     </div>
   )} />
+```
+
+## Rendering Routes with Statuses
+
+Express example:
+
+```
+const context = {};
+const markup = renderToString(
+  <StaticRouter context={context} location={req.url}>
+    <App />
+  </StaticRouter>
+);
+
+if (context.url) {
+  res.redirect(context.status || 302, context.url);
+} else {
+  res.status(context.status || 200).send(`<html>...</html>`);
+}
 ```
