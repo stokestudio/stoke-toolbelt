@@ -1,6 +1,6 @@
 {
   "name": "stoke-toolbelt",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "React components used for making websites at Stoke Studio",
   "repository": "https://github.com/stokestudio/stoke-toolbelt",
   "author": "Kevin Wade <kevin@stokestudio.com>",
