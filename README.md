@@ -1,6 +1,7 @@
 # Stoke Toolbelt
 
-This is a collection of React components we use at [Stoke Studio](https://stokestudio.com) for creating websites.
+This is a collection of React components we use at
+[Stoke Studio](https://stokestudio.com) for creating websites.
 
 ## Install
 
@@ -9,6 +10,7 @@ yarn add stoke-toolbelt
 ```
 
 **Dependencies:**
+
 ```bash
 yarn add lodash prop-types react react-ga react-router-dom
 ```
@@ -16,10 +18,11 @@ yarn add lodash prop-types react react-ga react-router-dom
 ## Components
 
 ### NotFound
-See [Rendering Routes with Statuses](#render-statuses). For use with [react-router](https://github.com/ReactTraining/react-router).
 
-**Props:**
-*Same props as `Route`*
+See [Rendering Routes with Statuses](#render-statuses). For use with
+[react-router](https://github.com/ReactTraining/react-router).
+
+**Props:** _Same props as `Route`_
 
 ```jsx
 <Switch>
@@ -28,14 +31,15 @@ See [Rendering Routes with Statuses](#render-statuses). For use with [react-rout
   <Route path="/page3" component={Page3} />
 
   <NotFound component={NotFoundPage} />
-</Switch>
+</Switch>;
 ```
 
 ### PermanentRedirect
-For use with [react-router](https://github.com/ReactTraining/react-router).
 
-**Props:**
-*Same props as `Route`*
+For use with [react-router](https://github.com/ReactTraining/react-router).
+Forwards search query to new path.
+
+**Props:** _Same props as `Route`_
 
 ```jsx
 <Switch>
@@ -44,15 +48,16 @@ For use with [react-router](https://github.com/ReactTraining/react-router).
   <Route path="/page3" component={Page3} />
 
   <PermanentRedirect exact from="/about-us" to="/about" />
-</Switch>
+</Switch>;
 ```
 
 ### RetinaImage
 
 **Props:**
-- `srcs`: array of source paths in increasing densities [1x, 2x, 3x]
-- `naturalWidth`: the width image should actually be (width of 1x image)
-- `alt`: accessible alt text
+
+* `srcs`: array of source paths in increasing densities [1x, 2x, 3x]
+* `naturalWidth`: the width image should actually be (width of 1x image)
+* `alt`: accessible alt text
 
 ```jsx
 <RetinaImage
@@ -62,22 +67,26 @@ For use with [react-router](https://github.com/ReactTraining/react-router).
     '/images/my-image@3x.jpg'
   ]}
   naturalWidth={500}
-  alt="My Image" />
+  alt="My Image"
+/>;
 ```
 
 ### ScrollToTop
-For use with [react-router](https://github.com/ReactTraining/react-router). Scroll to top of page on route changes.
+
+For use with [react-router](https://github.com/ReactTraining/react-router).
+Scroll to top of page on route changes.
 
 ```jsx
 <ScrollToTop>
   <App />
-</ScrollToTop>
+</ScrollToTop>;
 ```
 
 ### TrackPageViews
 
 **Props:**
-- `trackingId`: Google Analytics Tracking ID (ex. `UA-12345678-1`)
+
+* `trackingId`: Google Analytics Tracking ID (ex. `UA-12345678-1`)
 
 ```jsx
 const App = () => (
@@ -94,8 +103,9 @@ const App = () => (
 ### WindowSize
 
 **Props:**
-- `render`: passed object of `{ width }` where width is current width of window
-  - Note: `width` value calculation is throttled
+
+* `render`: passed object of `{ width }` where width is current width of window
+  * Note: `width` value calculation is throttled
 
 ```jsx
 <WindowSize
@@ -103,7 +113,8 @@ const App = () => (
     <div style={{ width: width * 0.5 }}>
       This is always fixed at half of window width.
     </div>
-  )} />
+  )}
+/>;
 ```
 
 ## Rendering Routes with Statuses
