@@ -87,6 +87,8 @@ Scroll to top of page on route changes.
 **Props:**
 
 * `trackingId`: Google Analytics Tracking ID (ex. `UA-12345678-1`)
+  * Supports multiple Tracking IDs: `[{ trackingId: 'UA-1' }, { trackingId:
+    'UA-2' }]`
 
 ```jsx
 const App = () => (

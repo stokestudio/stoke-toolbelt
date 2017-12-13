@@ -41,7 +41,12 @@ class TrackPageViews extends React.Component {
 
 TrackPageViews.propTypes = {
   children: PropTypes.node.isRequired,
-  trackingId: PropTypes.string.isRequired
+  trackingId: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.arrayOf(
+      PropTypes.shape({ trackingId: PropTypes.string.isRequired })
+    ).isRequired
+  ]).isRequired
 };
 
 export default withRouter(TrackPageViews);
