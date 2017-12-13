@@ -88,7 +88,9 @@ Scroll to top of page on route changes.
 
 * `trackingId`: Google Analytics Tracking ID (ex. `UA-12345678-1`)
   * Supports multiple Tracking IDs: `[{ trackingId: 'UA-1' }, { trackingId:
-    'UA-2' }]`
+    'UA-2', gaOptions: { name: 'second' }}]`
+    * At least one tracker must be named
+    * Pageviews are tracked via all trackers (regardless of name)
 
 ```jsx
 const App = () => (

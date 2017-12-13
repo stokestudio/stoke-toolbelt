@@ -1,3 +1,4 @@
+import { compact, isArray, isString } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
@@ -10,19 +11,30 @@ const onClient = cb => {
 
 const getLocationPath = location => location.pathname + location.search;
 
-const logPageView = page => {
+const logPageView = (page, trackerNames) => {
   onClient(ReactGA => {
-    ReactGA.set({ page });
-    ReactGA.pageview(page);
+    ReactGA.set({ page }, trackerNames);
+    ReactGA.pageview(page, trackerNames);
   });
 };
 
 class TrackPageViews extends React.Component {
+  getTrackerNames = () => {
+    const { trackingId } = this.props;
+
+    if (isString(trackingId)) return;
+
+    if (isArray(trackingId))
+      return compact(
+        trackingId.map(config => config.gaOptions && config.gaOptions.name)
+      );
+  };
+
   componentDidMount() {
     onClient(ReactGA => ReactGA.initialize(this.props.trackingId));
 
     const page = getLocationPath(this.props.location);
-    logPageView(page);
+    logPageView(page, this.getTrackerNames());
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,7 +42,7 @@ class TrackPageViews extends React.Component {
     const nextPage = getLocationPath(nextProps.location);
 
     if (currentPage !== nextPage) {
-      logPageView(nextPage);
+      logPageView(nextPage, this.getTrackerNames());
     }
   }
 
