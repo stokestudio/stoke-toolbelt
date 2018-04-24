@@ -31,7 +31,7 @@ See [Rendering Routes with Statuses](#render-statuses). For use with
   <Route path="/page3" component={Page3} />
 
   <NotFound component={NotFoundPage} />
-</Switch>;
+</Switch>
 ```
 
 ### PermanentRedirect
@@ -48,7 +48,7 @@ Forwards search query to new path.
   <Route path="/page3" component={Page3} />
 
   <PermanentRedirect exact from="/about-us" to="/about" />
-</Switch>;
+</Switch>
 ```
 
 ### RetinaImage
@@ -68,7 +68,7 @@ Forwards search query to new path.
   ]}
   naturalWidth={500}
   alt="My Image"
-/>;
+/>
 ```
 
 ### ScrollToTop
@@ -79,7 +79,7 @@ Scroll to top of page on route changes.
 ```jsx
 <ScrollToTop>
   <App />
-</ScrollToTop>;
+</ScrollToTop>
 ```
 
 ### TrackPageViews
@@ -87,10 +87,10 @@ Scroll to top of page on route changes.
 **Props:**
 
 * `trackingId`: Google Analytics Tracking ID (ex. `UA-12345678-1`)
-  * Supports multiple Tracking IDs: `[{ trackingId: 'UA-1' }, { trackingId:
-    'UA-2', gaOptions: { name: 'second' }}]`
+  * Supports multiple Tracking IDs: `[{ trackingId: 'UA-1' }, { trackingId: 'UA-2', gaOptions: { name: 'second' }}]`
     * At least one tracker must be named
     * Pageviews are tracked via all trackers (regardless of name)
+* `onInit`: Function ran after `react-ga` is initialized. `ReactGA` is passed as only parameter. Only runs in browser—never on server.
 
 ```jsx
 const App = () => (
@@ -118,7 +118,7 @@ const App = () => (
       This is always fixed at half of window width.
     </div>
   )}
-/>;
+/>
 ```
 
 ## Rendering Routes with Statuses

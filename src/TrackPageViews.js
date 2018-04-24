@@ -31,7 +31,10 @@ class TrackPageViews extends React.Component {
   };
 
   componentDidMount() {
-    onClient(ReactGA => ReactGA.initialize(this.props.trackingId));
+    onClient(ReactGA => {
+      ReactGA.initialize(this.props.trackingId);
+      if (this.props.onInit) this.props.onInit(ReactGA);
+    });
 
     const page = getLocationPath(this.props.location);
     logPageView(page, this.getTrackerNames());
@@ -58,7 +61,8 @@ TrackPageViews.propTypes = {
     PropTypes.arrayOf(
       PropTypes.shape({ trackingId: PropTypes.string.isRequired })
     ).isRequired
-  ]).isRequired
+  ]).isRequired,
+  onInit: PropTypes.func
 };
 
 export default withRouter(TrackPageViews);
