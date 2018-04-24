@@ -9,16 +9,16 @@ const env = process.env.NODE_ENV;
 const config = {
   input: 'src/index.js',
   output: {
-    format: 'umd'
+    format: 'umd',
+    name: 'StokeToolbelt',
+    globals: {
+      lodash: 'lodash',
+      'prop-types': 'PropTypes',
+      react: 'React',
+      'react-router-dom': 'ReactRouterDOM'
+    }
   },
   external: ['lodash', 'prop-types', 'react', 'react-ga', 'react-router-dom'],
-  globals: {
-    lodash: 'lodash',
-    'prop-types': 'PropTypes',
-    react: 'React',
-    'react-router-dom': 'ReactRouterDOM'
-  },
-  name: 'StokeToolbelt',
   plugins: [
     nodeResolve(),
     babel({
